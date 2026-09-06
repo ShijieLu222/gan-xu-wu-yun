@@ -16,5 +16,13 @@ export const viewport: Viewport = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="zh-CN"><body>{children}</body></html>;
+  return (
+    <html lang="zh-CN">
+      <head>
+        <link rel="preconnect" href="https://cdn.jsdmirror.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://cdn.jsdmirror.com" />
+      </head>
+      <body>{children}</body>
+    </html>
+  );
 }

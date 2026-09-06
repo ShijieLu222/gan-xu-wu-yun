@@ -1,8 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useState } from "react";
-import { asset } from "../lib/asset";
+import { SmartImage } from "../lib/smart-image";
 
 const blueGiftBlur = "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAAAwBACdASoSABgAPzmQulivKaUjqAqp4CcJYwAAL5wukPMkXQnfWK0sAgAA/t2x3hRJBACVhPkApUlPuqFRzOM7x16svev21SMFfSKQ/rqsNiMAiYcBG1C18ZCgpnPr55e4F6UC5TYNELTnsh5VEOUAAAA=";
 const cocoaGiftBlur = "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAACwBACdASoSABgAPzmOvVgvKaYjqAqp4CcJZADE2AhFZftNzQfSpY+aDSyNBxcAAP7o6XszwnmYcm1aUecJFPvnbCEE1XKURIneueBKh2QSwFguGTKGVJIt1dbPHbTMFNCDbAoagUgFwTTSgnDXBeb6TYH38KrvsR6jV4z0yeV2fAAAAAA=";
@@ -58,7 +57,7 @@ export default function Home() {
       <header className={`site-header ${scrolled ? "is-scrolled" : ""}`}>
         <div className="header-main">
           <a className="brand" href="#top" aria-label="柑叙乌云首页">
-            <Image src={asset("/images/logo.webp")} alt="柑叙乌云 GAN XU WU YUN" width={240} height={168} priority fetchPriority="high" placeholder="blur" blurDataURL={imageBlur.logo} style={{ width: "100%", height: "100%", objectFit: "contain" }} />
+            <SmartImage src="/images/logo.webp" alt="柑叙乌云 GAN XU WU YUN" width={240} height={168} priority fetchPriority="high" placeholder="blur" blurDataURL={imageBlur.logo} style={{ width: "100%", height: "100%", objectFit: "contain" }} />
           </a>
           <button type="button" className="nav-cta header-cta" onClick={() => setQrOpen(true)}>扫码进群</button>
         </div>
@@ -85,10 +84,10 @@ export default function Home() {
         </div>
         <div className="hero-visual">
           <div className="hero-photo hero-photo-primary">
-            <Image src={asset("/images/fruit-flower-blue.webp")} alt="蓝白花艺鲜果礼盒" fill priority fetchPriority="high" placeholder="blur" blurDataURL={blueGiftBlur} sizes="(max-width: 760px) 88vw, 37vw" />
+            <SmartImage src="/images/fruit-flower-blue.webp" alt="蓝白花艺鲜果礼盒" fill priority fetchPriority="high" placeholder="blur" blurDataURL={blueGiftBlur} sizes="(max-width: 760px) 88vw, 37vw" />
           </div>
           <div className="hero-photo hero-photo-secondary">
-            <Image src={asset("/images/fruit-flower-cocoa.webp")} alt="咖色花艺鲜果礼盒" fill loading="lazy" fetchPriority="low" placeholder="blur" blurDataURL={cocoaGiftBlur} sizes="(max-width: 760px) 40vw, 17vw" />
+            <SmartImage src="/images/fruit-flower-cocoa.webp" alt="咖色花艺鲜果礼盒" fill loading="lazy" fetchPriority="low" placeholder="blur" blurDataURL={cocoaGiftBlur} sizes="(max-width: 760px) 40vw, 17vw" />
           </div>
           <div className="hero-card card-one"><small>SEASONAL GIFT</small><b>果礼 · 花意</b></div>
           <div className="hero-caption"><span>01</span><p>当季鲜果<br />现代花艺果礼</p></div>
@@ -106,7 +105,7 @@ export default function Home() {
         </div>
         <div className="product-stage">
           <div className="product-photo" key={product.id}>
-            <Image src={asset(product.image)} alt={product.name} fill loading="lazy" placeholder="blur" blurDataURL={product.blur} sizes="(max-width: 820px) 100vw, 56vw" style={{ objectPosition: product.position }} />
+            <SmartImage src={product.image} alt={product.name} fill loading="lazy" placeholder="blur" blurDataURL={product.blur} sizes="(max-width: 820px) 100vw, 56vw" style={{ objectPosition: product.position }} />
             <span className="photo-index">{product.number} / 04</span>
           </div>
           <div className="product-detail" key={`${product.id}-detail`}>
@@ -125,7 +124,7 @@ export default function Home() {
       </section>
 
       <section className="benefits" id="benefits">
-        <div className="benefit-photo"><Image src={asset("/images/event-desserts.webp")} alt="柑叙乌云甜品与鲜果群福利" fill loading="lazy" placeholder="blur" blurDataURL={imageBlur.event} sizes="(max-width: 820px) 100vw, 48vw" /><div className="event-ribbon">微信好友群专属 · 不定期掉落</div></div>
+        <div className="benefit-photo"><SmartImage src="/images/event-desserts.webp" alt="柑叙乌云甜品与鲜果群福利" fill loading="lazy" placeholder="blur" blurDataURL={imageBlur.event} sizes="(max-width: 820px) 100vw, 48vw" /><div className="event-ribbon">微信好友群专属 · 不定期掉落</div></div>
         <div className="benefit-copy">
           <div className="benefit-cloud" aria-hidden="true"><i /><i /><i /></div>
           <p className="kicker light">COMMUNITY BENEFITS</p><h2>进群，<br />接住一点甜</h2>
@@ -140,7 +139,7 @@ export default function Home() {
         <div className="contact-heading"><p className="kicker">COME SAY HELLO</p><h2>先加个好友，<br />再慢慢挑甜品</h2></div>
         <div className="contact-grid">
           <button type="button" className="qr-card" onClick={() => setQrOpen(true)} aria-label="放大微信二维码">
-            <div className="qr-image"><Image src={asset("/images/wechat-contact.webp")} alt="柑叙乌云微信好友二维码" fill loading="lazy" placeholder="blur" blurDataURL={imageBlur.wechat} sizes="340px" /></div>
+            <div className="qr-image"><SmartImage src="/images/wechat-contact.webp" alt="柑叙乌云微信好友二维码" fill loading="lazy" placeholder="blur" blurDataURL={imageBlur.wechat} sizes="340px" /></div>
             <div><span>01 / WECHAT</span><h3>扫码添加好友</h3><p>添加后发送「进群」，店主会邀请你进入福利群</p></div><i>点击放大 ↗</i>
           </button>
           <div className="shop-card">
@@ -163,7 +162,7 @@ export default function Home() {
       </section>
 
       <footer>
-        <a className="footer-logo" href="#top"><Image src={asset("/images/logo.webp")} alt="柑叙乌云" width={240} height={168} loading="lazy" placeholder="blur" blurDataURL={imageBlur.logo} style={{ width: "100%", height: "100%", objectFit: "contain" }} /></a>
+        <a className="footer-logo" href="#top"><SmartImage src="/images/logo.webp" alt="柑叙乌云" width={240} height={168} loading="lazy" placeholder="blur" blurDataURL={imageBlur.logo} style={{ width: "100%", height: "100%", objectFit: "contain" }} /></a>
         <p>上海市松江区叶榭镇451弄一号一层<br /><a href="tel:17721093282">177 2109 3282</a></p><div><a href="#signature">招牌产品</a><a href="#benefits">入群福利</a><a href="#contact">联系门店</a></div><small>© 2026 GAN XU WU YUN</small>
       </footer>
 
@@ -178,7 +177,7 @@ export default function Home() {
         <div className="qr-modal" role="dialog" aria-modal="true" aria-label="微信二维码" onClick={() => setQrOpen(false)}>
           <div className="qr-dialog" onClick={(event) => event.stopPropagation()}>
             <button type="button" className="modal-close" onClick={() => setQrOpen(false)} aria-label="关闭">×</button><p>WECHAT COMMUNITY</p><h2>扫码添加好友</h2>
-            <div className="modal-qr"><Image src={asset("/images/wechat-contact.webp")} alt="柑叙乌云微信好友二维码，扫码添加好友" fill placeholder="blur" blurDataURL={imageBlur.wechat} sizes="380px" /></div>
+            <div className="modal-qr"><SmartImage src="/images/wechat-contact.webp" alt="柑叙乌云微信好友二维码，扫码添加好友" fill placeholder="blur" blurDataURL={imageBlur.wechat} sizes="380px" /></div>
             <b>添加后发送「进群」</b><span>新品、抽奖和福利会在群里不定期出现</span>
           </div>
         </div>
