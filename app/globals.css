@@ -65,6 +65,7 @@ footer{display:grid;grid-template-columns:1.4fr 1fr auto;align-items:end;gap:40p
   h1{font-size:clamp(36px,9vw,56px);letter-spacing:-.05em}
   .section-intro,.contact-heading{grid-template-columns:1fr}
   .section-intro .kicker,.contact-heading h2{grid-column:auto}
+  .section-intro .kicker{margin-bottom:10px}
   .section-intro>p:last-child{justify-self:start}
   .signature{padding:56px 20px 40px}
   .signature,.benefits,.contact{scroll-margin-top:76px}

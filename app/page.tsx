@@ -5,10 +5,10 @@ import { useEffect, useState } from "react";
 import { asset } from "../lib/asset";
 
 const signatures = [
-  { id: "tiramisu", number: "01", name: "提拉米苏", en: "TIRAMISU", copy: "轻盈马斯卡彭叠上细腻风味，一盒里藏着刚刚好的甜。二十余种口味会跟着季节轮换。", meta: "25 元起 · 每日现做", image: "/images/tiramisu.webp", position: "50% 54%" },
-  { id: "basque", number: "02", name: "巴斯克生日蛋糕", en: "BIRTHDAY BASQUE", copy: "焦香表面、柔软芝士芯，再用鲜果与丝带把生日的仪式感好好装起来。", meta: "按需定制 · 建议提前预订", image: "/images/birthday-basque.webp", position: "50% 55%" },
-  { id: "kitty", number: "03", name: "Kitty 果切", en: "KITTY FRUIT BOX", copy: "把当季鲜果切成可爱模样。好吃、好看，也很适合成为聚会和生日里的小惊喜。", meta: "当季鲜果 · 按份定制", image: "/images/kitty-fruit.webp", position: "50% 46%" },
-  { id: "cloud", number: "04", name: "四拼乌云盒子", en: "FOUR FLAVORS", copy: "一次装下四种快乐。不同奶油与果香自由碰面，适合分享，也适合一个人慢慢吃。", meta: "四味分享 · 口味当日更新", image: "/images/four-box.webp", position: "50% 50%" },
+  { id: "tiramisu", number: "01", name: "提拉米苏", en: "TIRAMISU", copy: "轻盈马斯卡彭叠上细腻风味，一盒里藏着刚刚好的甜，二十余种口味会跟着季节轮换", meta: "25 元起 · 每日现做", image: "/images/tiramisu.webp", position: "50% 54%" },
+  { id: "basque", number: "02", name: "巴斯克生日蛋糕", en: "BIRTHDAY BASQUE", copy: "焦香表面、柔软芝士芯，再用鲜果与丝带把生日的仪式感好好装起来", meta: "按需定制 · 建议提前预订", image: "/images/birthday-basque.webp", position: "50% 55%" },
+  { id: "kitty", number: "03", name: "Kitty 果切", en: "KITTY FRUIT BOX", copy: "把当季鲜果切成可爱模样，好吃、好看，也很适合成为聚会和生日里的小惊喜", meta: "当季鲜果 · 按份定制", image: "/images/kitty-fruit.webp", position: "50% 46%" },
+  { id: "cloud", number: "04", name: "四拼乌云盒子", en: "FOUR FLAVORS", copy: "一次装下四种快乐，不同奶油与果香自由碰面，适合分享，也适合一个人慢慢吃", meta: "四味分享 · 口味当日更新", image: "/images/four-box.webp", position: "50% 50%" },
 ];
 
 export default function Home() {
@@ -61,8 +61,8 @@ export default function Home() {
       <section className="hero" aria-labelledby="hero-title">
         <div className="hero-copy">
           <p className="eyebrow"><span /> DESSERT · FRUIT · GIFT</p>
-          <h1 id="hero-title">云朵一样轻，<br /><em>果香刚刚好。</em></h1>
-          <p className="hero-lead">手作甜品与创意鲜果礼，把平常的一天，也认真过得甜一点。</p>
+          <h1 id="hero-title">云朵一样轻，<br /><em>果香刚刚好</em></h1>
+          <p className="hero-lead">手作甜品与创意鲜果礼，把平常的一天，也认真过得甜一点</p>
           <div className="hero-actions">
             <a className="button button-dark" href="#signature">看看招牌</a>
             <button className="text-button" type="button" onClick={() => setQrOpen(true)}>微信咨询 <span>↗</span></button>
@@ -82,8 +82,8 @@ export default function Home() {
 
       <section className="signature" id="signature">
         <div className="section-intro">
-          <p className="kicker">SIGNATURE SELECTION</p><h2>先认识这四款。</h2>
-          <p>菜单不必很长，每一款都值得被记住。点击名字，换一种今天的心情。</p>
+          <p className="kicker">SIGNATURE SELECTION</p><h2>先认识这四款</h2>
+          <p>菜单不必很长，每一款都值得被记住，点击名字，换一种今天的心情</p>
         </div>
         <div className="product-stage">
           <div className="product-photo" key={product.id}>
@@ -108,27 +108,27 @@ export default function Home() {
       <section className="benefits" id="benefits">
         <div className="benefit-photo"><Image src={asset("/images/event-desserts.webp")} alt="柑叙乌云甜品与鲜果群福利" fill loading="lazy" sizes="(max-width: 820px) 100vw, 48vw" /><div className="event-ribbon">微信好友群专属 · 不定期掉落</div></div>
         <div className="benefit-copy">
-          <p className="kicker light">COMMUNITY BENEFITS</p><h2>进群，<br />接住一点甜。</h2>
-          <p className="benefit-lead">新品试吃、限时优惠和不定期抽奖，都先在微信好友群里发生。</p>
+          <p className="kicker light">COMMUNITY BENEFITS</p><h2>进群，<br />接住一点甜</h2>
+          <p className="benefit-lead">新品试吃、限时优惠和不定期抽奖，都先在微信好友群里发生</p>
           <ol><li><span>一等奖</span><b>Kitty 果切礼盒一份</b></li><li><span>二等奖</span><b>四拼乌云盒子一份</b></li><li><span>三等奖</span><b>免费提拉米苏，任选 5 位</b></li></ol>
           <button className="button button-pink" type="button" onClick={() => setQrOpen(true)}>扫码添加微信，进福利群 <span>↗</span></button>
-          <p className="fine-print">活动时间与核销规则以群内当期公告为准。</p>
+          <p className="fine-print">活动时间与核销规则以群内当期公告为准</p>
         </div>
       </section>
 
       <section className="contact" id="contact">
-        <div className="contact-heading"><p className="kicker">COME SAY HELLO</p><h2>先加个好友，<br />再慢慢挑甜品。</h2></div>
+        <div className="contact-heading"><p className="kicker">COME SAY HELLO</p><h2>先加个好友，<br />再慢慢挑甜品</h2></div>
         <div className="contact-grid">
           <button type="button" className="qr-card" onClick={() => setQrOpen(true)} aria-label="放大微信二维码">
             <div className="qr-image"><Image src={asset("/images/wechat-contact.webp")} alt="柑叙乌云微信好友二维码" fill loading="lazy" sizes="340px" /></div>
-            <div><span>01 / WECHAT</span><h3>扫码添加好友</h3><p>添加后发送「进群」，店主会邀请你进入福利群。</p></div><i>点击放大 ↗</i>
+            <div><span>01 / WECHAT</span><h3>扫码添加好友</h3><p>添加后发送「进群」，店主会邀请你进入福利群</p></div><i>点击放大 ↗</i>
           </button>
           <div className="shop-card">
             <div className="map-mark" aria-hidden="true"><span /><span /><span /><b>松江</b></div>
             <div>
               <span>02 / STORE</span>
               <h3>叶榭门店</h3>
-              <p>欢迎到店挑选，建议先微信预约。</p>
+              <p>欢迎到店挑选，建议先微信预约</p>
               <address>
                 上海市松江区叶榭镇451弄一号一层
                 <a href="tel:17721093282">177 2109 3282</a>
@@ -159,7 +159,7 @@ export default function Home() {
           <div className="qr-dialog" onClick={(event) => event.stopPropagation()}>
             <button type="button" className="modal-close" onClick={() => setQrOpen(false)} aria-label="关闭">×</button><p>WECHAT COMMUNITY</p><h2>扫码添加好友</h2>
             <div className="modal-qr"><Image src={asset("/images/wechat-contact.webp")} alt="柑叙乌云微信好友二维码，扫码添加好友" fill sizes="380px" /></div>
-            <b>添加后发送「进群」</b><span>新品、抽奖和福利会在群里不定期出现。</span>
+            <b>添加后发送「进群」</b><span>新品、抽奖和福利会在群里不定期出现</span>
           </div>
         </div>
       )}
