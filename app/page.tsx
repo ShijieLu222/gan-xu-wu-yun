@@ -23,6 +23,15 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
+    const id = window.location.hash.replace("#", "") || new URLSearchParams(window.location.search).get("goto");
+    if (!id) return;
+    const node = document.getElementById(id);
+    if (!node) return;
+    const timer = window.setTimeout(() => node.scrollIntoView({ behavior: "instant", block: "start" }), 50);
+    return () => window.clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
     if (!qrOpen) return;
     const close = (event: KeyboardEvent) => event.key === "Escape" && setQrOpen(false);
     window.addEventListener("keydown", close);
@@ -34,12 +43,17 @@ export default function Home() {
   return (
     <main id="top">
       <header className={`site-header ${scrolled ? "is-scrolled" : ""}`}>
-        <a className="brand" href="#top" aria-label="柑叙乌云首页">
-          <Image src="/images/logo-transparent.png" alt="柑叙乌云 GAN XU WU YUN" width={240} height={160} priority />
-        </a>
+        <div className="header-main">
+          <a className="brand" href="#top" aria-label="柑叙乌云首页">
+            <Image src="/images/logo-transparent.png" alt="柑叙乌云 GAN XU WU YUN" width={240} height={168} priority style={{ width: "100%", height: "100%", objectFit: "contain" }} />
+          </a>
+          <button type="button" className="nav-cta header-cta" onClick={() => setQrOpen(true)}>扫码进群</button>
+        </div>
         <nav aria-label="主导航">
-          <a href="#signature">招牌</a><a href="#benefits">福利</a><a href="#contact">联系</a>
-          <button type="button" className="nav-cta" onClick={() => setQrOpen(true)}>扫码进群</button>
+          <a href="#signature">招牌</a>
+          <a href="#benefits">福利</a>
+          <a href="#contact">联系</a>
+          <button type="button" className="nav-cta desktop-only" onClick={() => setQrOpen(true)}>扫码进群</button>
         </nav>
       </header>
 
@@ -128,10 +142,16 @@ export default function Home() {
       </section>
 
       <footer>
-        <a className="footer-logo" href="#top"><Image src="/images/logo-transparent.png" alt="柑叙乌云" width={240} height={160} /></a>
+        <a className="footer-logo" href="#top"><Image src="/images/logo-transparent.png" alt="柑叙乌云" width={240} height={168} style={{ width: "100%", height: "100%", objectFit: "contain" }} /></a>
         <p>上海市松江区叶榭镇451弄一号一层<br /><a href="tel:17721093282">177 2109 3282</a></p><div><a href="#signature">招牌产品</a><a href="#benefits">入群福利</a><a href="#contact">联系门店</a></div><small>© 2026 GAN XU WU YUN</small>
       </footer>
 
+      <nav className="mobile-dock" aria-label="手机快捷导航">
+        <a href="#signature">招牌</a>
+        <a href="#benefits">福利</a>
+        <a href="#contact">联系</a>
+        <button type="button" onClick={() => setQrOpen(true)}>进群</button>
+      </nav>
       <button className="floating-join" type="button" onClick={() => setQrOpen(true)}><span>福利群</span><b>扫码加入</b></button>
       {qrOpen && (
         <div className="qr-modal" role="dialog" aria-modal="true" aria-label="微信二维码" onClick={() => setQrOpen(false)}>
