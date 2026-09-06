@@ -4,6 +4,9 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { asset } from "../lib/asset";
 
+const blueGiftBlur = "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAAAwBACdASoSABgAPzmQulivKaUjqAqp4CcJYwAAL5wukPMkXQnfWK0sAgAA/t2x3hRJBACVhPkApUlPuqFRzOM7x16svev21SMFfSKQ/rqsNiMAiYcBG1C18ZCgpnPr55e4F6UC5TYNELTnsh5VEOUAAAA=";
+const cocoaGiftBlur = "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAACwBACdASoSABgAPzmOvVgvKaYjqAqp4CcJZADE2AhFZftNzQfSpY+aDSyNBxcAAP7o6XszwnmYcm1aUecJFPvnbCEE1XKURIneueBKh2QSwFguGTKGVJIt1dbPHbTMFNCDbAoagUgFwTTSgnDXBeb6TYH38KrvsR6jV4z0yeV2fAAAAAA=";
+
 const signatures = [
   { id: "tiramisu", number: "01", name: "提拉米苏", en: "TIRAMISU", copy: "轻盈马斯卡彭叠上细腻风味，一盒里藏着刚刚好的甜，二十余种口味会跟着季节轮换", meta: "25 元起 · 每日现做", image: "/images/tiramisu.webp", position: "50% 54%" },
   { id: "basque", number: "02", name: "巴斯克生日蛋糕", en: "BIRTHDAY BASQUE", copy: "焦香表面、柔软芝士芯，再用鲜果与丝带把生日的仪式感好好装起来", meta: "按需定制 · 建议提前预订", image: "/images/birthday-basque.webp", position: "50% 55%" },
@@ -73,10 +76,10 @@ export default function Home() {
         </div>
         <div className="hero-visual">
           <div className="hero-photo hero-photo-primary">
-            <Image src={asset("/images/fruit-flower-blue.webp")} alt="蓝白花艺鲜果礼盒" fill priority fetchPriority="high" sizes="(max-width: 760px) 88vw, 37vw" />
+            <Image src={asset("/images/fruit-flower-blue.webp")} alt="蓝白花艺鲜果礼盒" fill priority fetchPriority="high" placeholder="blur" blurDataURL={blueGiftBlur} sizes="(max-width: 760px) 88vw, 37vw" />
           </div>
           <div className="hero-photo hero-photo-secondary">
-            <Image src={asset("/images/fruit-flower-cocoa.webp")} alt="咖色花艺鲜果礼盒" fill priority fetchPriority="high" sizes="(max-width: 760px) 40vw, 17vw" />
+            <Image src={asset("/images/fruit-flower-cocoa.webp")} alt="咖色花艺鲜果礼盒" fill loading="lazy" fetchPriority="low" placeholder="blur" blurDataURL={cocoaGiftBlur} sizes="(max-width: 760px) 40vw, 17vw" />
           </div>
           <div className="hero-card card-one"><small>SEASONAL GIFT</small><b>果礼 · 花意</b></div>
           <div className="hero-caption"><span>01</span><p>当季鲜果<br />现代花艺果礼</p></div>
