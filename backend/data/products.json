@@ -1,0 +1,8 @@
+[
+  {"id":"tiramisu","name":"提拉米苏","starting_price":25,"unit":"元起"},
+  {"id":"basque","name":"巴斯克","starting_price":null,"unit":"每日现烤"},
+  {"id":"kitty","name":"Kitty 果切","starting_price":null,"unit":"按份定制"},
+  {"id":"four","name":"四拼乌云盒子","starting_price":null,"unit":"四味分享"},
+  {"id":"birthday","name":"巴斯克生日蛋糕","starting_price":null,"unit":"提前预订"},
+  {"id":"gift","name":"果礼","starting_price":null,"unit":"专属搭配"}
+]
