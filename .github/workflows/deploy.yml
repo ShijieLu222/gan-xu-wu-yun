@@ -1,0 +1,67 @@
+name: Deploy site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build frontend
+        env:
+          NEXT_PUBLIC_BASE_PATH: /gan-xu-wu-yun
+          NEXT_PUBLIC_SITE_URL: https://shijielu222.github.io/gan-xu-wu-yun
+        run: npm run build
+
+      - name: Snapshot static site
+        run: |
+          npx wrangler dev --config dist/server/wrangler.json --ip 127.0.0.1 --port 8787 --local &
+          for i in $(seq 1 40); do
+            if curl -sf http://127.0.0.1:8787/gan-xu-wu-yun/ >/dev/null; then
+              break
+            fi
+            sleep 2
+          done
+          mkdir -p _site
+          cp -R dist/client/. _site/
+          if curl -sf http://127.0.0.1:8787/gan-xu-wu-yun/ -o _site/index.html; then
+            true
+          else
+            curl -sf http://127.0.0.1:8787/ -o _site/index.html
+          fi
+          cp _site/index.html _site/404.html
+          touch _site/.nojekyll
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
