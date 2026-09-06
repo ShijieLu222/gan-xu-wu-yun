@@ -21,7 +21,7 @@ app.add_middleware(
 )
 
 
-def load_json(name: str) -> list[dict]:
+def load_json(name: str):
     with (BASE_DIR / "data" / name).open(encoding="utf-8") as source:
         return json.load(source)
 
@@ -39,3 +39,8 @@ def products() -> list[dict]:
 @app.get("/api/events", tags=["content"])
 def events() -> list[dict]:
     return load_json("events.json")
+
+
+@app.get("/api/store", tags=["content"])
+def store() -> dict:
+    return load_json("store.json")

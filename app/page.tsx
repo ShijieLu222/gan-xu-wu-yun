@@ -109,15 +109,27 @@ export default function Home() {
             <div><span>01 / WECHAT</span><h3>扫码添加好友</h3><p>添加后发送「进群」，店主会邀请你进入福利群。</p></div><i>点击放大 ↗</i>
           </button>
           <div className="shop-card">
-            <div className="map-mark" aria-hidden="true"><span /><span /><span /><b>即将见面</b></div>
-            <div><span>02 / STORE</span><h3>线下门店</h3><p>店面位置</p><address>地址待补充<br />营业时间待补充</address></div>
+            <div className="map-mark" aria-hidden="true"><span /><span /><span /><b>松江</b></div>
+            <div>
+              <span>02 / STORE</span>
+              <h3>叶榭门店</h3>
+              <p>欢迎到店挑选，建议先微信预约。</p>
+              <address>
+                上海市松江区叶榭镇451弄一号一层
+                <a href="tel:17721093282">177 2109 3282</a>
+              </address>
+              <div className="shop-actions">
+                <a href="https://uri.amap.com/search?keyword=%E4%B8%8A%E6%B5%B7%E5%B8%82%E6%9D%BE%E6%B1%9F%E5%8C%BA%E5%8F%B6%E6%A9%AB%E9%95%87451%E5%BC%84%E4%B8%80%E5%8F%B7%E4%B8%80%E5%B1%82" target="_blank" rel="noreferrer">打开地图</a>
+                <a href="tel:17721093282">拨打电话</a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       <footer>
         <a className="footer-logo" href="#top"><Image src="/images/logo-transparent.png" alt="柑叙乌云" width={240} height={160} /></a>
-        <p>甜品与鲜果，把心意装得更好看。</p><div><a href="#signature">招牌产品</a><a href="#benefits">入群福利</a><a href="#contact">联系门店</a></div><small>© 2026 GAN XU WU YUN</small>
+        <p>上海市松江区叶榭镇451弄一号一层<br /><a href="tel:17721093282">177 2109 3282</a></p><div><a href="#signature">招牌产品</a><a href="#benefits">入群福利</a><a href="#contact">联系门店</a></div><small>© 2026 GAN XU WU YUN</small>
       </footer>
 
       <button className="floating-join" type="button" onClick={() => setQrOpen(true)}><span>福利群</span><b>扫码加入</b></button>
