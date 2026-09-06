@@ -59,10 +59,12 @@ export default function Home() {
       </header>
 
       <section className="hero" aria-labelledby="hero-title">
+        <div className="cloud-wash cloud-wash-one" aria-hidden="true"><i /><i /><i /></div>
+        <div className="cloud-wash cloud-wash-two" aria-hidden="true"><i /><i /><i /></div>
         <div className="hero-copy">
-          <p className="eyebrow"><span /> DESSERT · FRUIT · GIFT</p>
-          <h1 id="hero-title">云朵一样轻，<br /><em>果香刚刚好</em></h1>
-          <p className="hero-lead">手作甜品与创意鲜果礼，把平常的一天，也认真过得甜一点</p>
+          <p className="eyebrow"><span /> DESSERT · FRUIT · FLORAL GIFT</p>
+          <h1 id="hero-title">把果香与花意，<br />装进<em>一朵云里</em></h1>
+          <p className="hero-lead">手作甜品、当季鲜果与花艺果礼。我们把新鲜、好看和刚刚好的甜，认真收进每一份礼物里。</p>
           <div className="hero-actions">
             <a className="button button-dark" href="#signature">看看招牌</a>
             <button className="text-button" type="button" onClick={() => setQrOpen(true)}>微信咨询 <span>↗</span></button>
@@ -70,17 +72,22 @@ export default function Home() {
           <div className="hero-stamp" aria-hidden="true"><span>HAND</span><b>手作</b><span>MADE</span></div>
         </div>
         <div className="hero-visual">
-          <Image src={asset("/images/hero-fruit.webp")} alt="柑叙乌云 Kitty 创意鲜果礼盒" fill priority fetchPriority="high" sizes="(max-width: 760px) 100vw, 58vw" />
-          <div className="hero-card card-one"><small>今日份</small><b>新鲜现切</b></div>
-          <div className="hero-card card-two"><b>甜度</b><small>刚刚好</small></div>
-          <span className="fruit-orbit orbit-one" aria-hidden="true">●</span><span className="fruit-orbit orbit-two" aria-hidden="true">✦</span>
+          <div className="hero-photo hero-photo-primary">
+            <Image src={asset("/images/fruit-flower-blue.webp")} alt="蓝白花艺鲜果礼盒" fill priority fetchPriority="high" sizes="(max-width: 760px) 88vw, 37vw" />
+          </div>
+          <div className="hero-photo hero-photo-secondary">
+            <Image src={asset("/images/fruit-flower-cocoa.webp")} alt="咖色花艺鲜果礼盒" fill priority fetchPriority="high" sizes="(max-width: 760px) 40vw, 17vw" />
+          </div>
+          <div className="hero-card card-one"><small>SEASONAL GIFT</small><b>果礼 · 花意</b></div>
+          <div className="hero-caption"><span>01</span><p>当季鲜果<br />现代花艺果礼</p></div>
         </div>
         <a className="scroll-cue" href="#signature"><span>SCROLL</span><i /></a>
       </section>
 
-      <div className="marquee" aria-hidden="true"><div>提拉米苏 <i>✦</i> 巴斯克 <i>✦</i> KITTY 果切 <i>✦</i> 四拼乌云盒子 <i>✦</i> 果礼 <i>✦</i> 提拉米苏 <i>✦</i> 巴斯克 <i>✦</i> KITTY 果切 <i>✦</i></div></div>
+      <div className="marquee" aria-hidden="true"><div>提拉米苏 <i>✦</i> 巴斯克 <i>✦</i> KITTY 果切 <i>✦</i> 四拼乌云盒子 <i>✦</i> 花艺鲜果礼 <i>✦</i> 提拉米苏 <i>✦</i> 巴斯克 <i>✦</i> KITTY 果切 <i>✦</i></div></div>
 
       <section className="signature" id="signature">
+        <div className="section-cloud" aria-hidden="true"><i /><i /><i /></div>
         <div className="section-intro">
           <p className="kicker">SIGNATURE SELECTION</p><h2>先认识这四款</h2>
           <p>菜单不必很长，每一款都值得被记住，点击名字，换一种今天的心情</p>
@@ -90,7 +97,7 @@ export default function Home() {
             <Image src={asset(product.image)} alt={product.name} fill loading="lazy" sizes="(max-width: 820px) 100vw, 56vw" style={{ objectPosition: product.position }} />
             <span className="photo-index">{product.number} / 04</span>
           </div>
-          <div className="product-detail">
+          <div className="product-detail" key={`${product.id}-detail`}>
             <p>{product.en}</p><h3>{product.name}</h3><div className="pink-rule" />
             <p className="product-copy">{product.copy}</p><strong>{product.meta}</strong>
             <button type="button" onClick={() => setQrOpen(true)}>咨询这一款 <span>→</span></button>
@@ -108,6 +115,7 @@ export default function Home() {
       <section className="benefits" id="benefits">
         <div className="benefit-photo"><Image src={asset("/images/event-desserts.webp")} alt="柑叙乌云甜品与鲜果群福利" fill loading="lazy" sizes="(max-width: 820px) 100vw, 48vw" /><div className="event-ribbon">微信好友群专属 · 不定期掉落</div></div>
         <div className="benefit-copy">
+          <div className="benefit-cloud" aria-hidden="true"><i /><i /><i /></div>
           <p className="kicker light">COMMUNITY BENEFITS</p><h2>进群，<br />接住一点甜</h2>
           <p className="benefit-lead">新品试吃、限时优惠和不定期抽奖，都先在微信好友群里发生</p>
           <ol><li><span>一等奖</span><b>Kitty 果切礼盒一份</b></li><li><span>二等奖</span><b>四拼乌云盒子一份</b></li><li><span>三等奖</span><b>免费提拉米苏，任选 5 位</b></li></ol>
