@@ -2,8 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-
-const asset = (path: string) => `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}${path}`;
+import { asset } from "../lib/asset";
 
 const signatures = [
   { id: "tiramisu", number: "01", name: "提拉米苏", en: "TIRAMISU", copy: "轻盈马斯卡彭叠上细腻风味，一盒里藏着刚刚好的甜。二十余种口味会跟着季节轮换。", meta: "25 元起 · 每日现做", image: "/images/tiramisu.webp", position: "50% 54%" },
@@ -47,7 +46,7 @@ export default function Home() {
       <header className={`site-header ${scrolled ? "is-scrolled" : ""}`}>
         <div className="header-main">
           <a className="brand" href="#top" aria-label="柑叙乌云首页">
-            <Image src={asset("/images/logo-transparent.png")} alt="柑叙乌云 GAN XU WU YUN" width={240} height={168} priority style={{ width: "100%", height: "100%", objectFit: "contain" }} />
+            <Image src={asset("/images/logo.webp")} alt="柑叙乌云 GAN XU WU YUN" width={240} height={168} priority fetchPriority="high" style={{ width: "100%", height: "100%", objectFit: "contain" }} />
           </a>
           <button type="button" className="nav-cta header-cta" onClick={() => setQrOpen(true)}>扫码进群</button>
         </div>
@@ -71,7 +70,7 @@ export default function Home() {
           <div className="hero-stamp" aria-hidden="true"><span>HAND</span><b>手作</b><span>MADE</span></div>
         </div>
         <div className="hero-visual">
-          <Image src={asset("/images/hero-fruit.webp")} alt="柑叙乌云 Kitty 创意鲜果礼盒" fill priority sizes="(max-width: 760px) 100vw, 58vw" />
+          <Image src={asset("/images/hero-fruit.webp")} alt="柑叙乌云 Kitty 创意鲜果礼盒" fill priority fetchPriority="high" sizes="(max-width: 760px) 100vw, 58vw" />
           <div className="hero-card card-one"><small>今日份</small><b>新鲜现切</b></div>
           <div className="hero-card card-two"><b>甜度</b><small>刚刚好</small></div>
           <span className="fruit-orbit orbit-one" aria-hidden="true">●</span><span className="fruit-orbit orbit-two" aria-hidden="true">✦</span>
@@ -88,7 +87,7 @@ export default function Home() {
         </div>
         <div className="product-stage">
           <div className="product-photo" key={product.id}>
-            <Image src={asset(product.image)} alt={product.name} fill sizes="(max-width: 820px) 100vw, 56vw" style={{ objectPosition: product.position }} />
+            <Image src={asset(product.image)} alt={product.name} fill loading="lazy" sizes="(max-width: 820px) 100vw, 56vw" style={{ objectPosition: product.position }} />
             <span className="photo-index">{product.number} / 04</span>
           </div>
           <div className="product-detail">
@@ -107,7 +106,7 @@ export default function Home() {
       </section>
 
       <section className="benefits" id="benefits">
-        <div className="benefit-photo"><Image src={asset("/images/event-desserts.webp")} alt="柑叙乌云甜品与鲜果群福利" fill sizes="(max-width: 820px) 100vw, 48vw" /><div className="event-ribbon">微信好友群专属 · 不定期掉落</div></div>
+        <div className="benefit-photo"><Image src={asset("/images/event-desserts.webp")} alt="柑叙乌云甜品与鲜果群福利" fill loading="lazy" sizes="(max-width: 820px) 100vw, 48vw" /><div className="event-ribbon">微信好友群专属 · 不定期掉落</div></div>
         <div className="benefit-copy">
           <p className="kicker light">COMMUNITY BENEFITS</p><h2>进群，<br />接住一点甜。</h2>
           <p className="benefit-lead">新品试吃、限时优惠和不定期抽奖，都先在微信好友群里发生。</p>
@@ -121,7 +120,7 @@ export default function Home() {
         <div className="contact-heading"><p className="kicker">COME SAY HELLO</p><h2>先加个好友，<br />再慢慢挑甜品。</h2></div>
         <div className="contact-grid">
           <button type="button" className="qr-card" onClick={() => setQrOpen(true)} aria-label="放大微信二维码">
-            <div className="qr-image"><Image src={asset("/images/wechat-contact.jpg")} alt="柑叙乌云微信好友二维码" fill sizes="340px" /></div>
+            <div className="qr-image"><Image src={asset("/images/wechat-contact.webp")} alt="柑叙乌云微信好友二维码" fill loading="lazy" sizes="340px" /></div>
             <div><span>01 / WECHAT</span><h3>扫码添加好友</h3><p>添加后发送「进群」，店主会邀请你进入福利群。</p></div><i>点击放大 ↗</i>
           </button>
           <div className="shop-card">
@@ -144,7 +143,7 @@ export default function Home() {
       </section>
 
       <footer>
-        <a className="footer-logo" href="#top"><Image src={asset("/images/logo-transparent.png")} alt="柑叙乌云" width={240} height={168} style={{ width: "100%", height: "100%", objectFit: "contain" }} /></a>
+        <a className="footer-logo" href="#top"><Image src={asset("/images/logo.webp")} alt="柑叙乌云" width={240} height={168} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "contain" }} /></a>
         <p>上海市松江区叶榭镇451弄一号一层<br /><a href="tel:17721093282">177 2109 3282</a></p><div><a href="#signature">招牌产品</a><a href="#benefits">入群福利</a><a href="#contact">联系门店</a></div><small>© 2026 GAN XU WU YUN</small>
       </footer>
 
@@ -159,7 +158,7 @@ export default function Home() {
         <div className="qr-modal" role="dialog" aria-modal="true" aria-label="微信二维码" onClick={() => setQrOpen(false)}>
           <div className="qr-dialog" onClick={(event) => event.stopPropagation()}>
             <button type="button" className="modal-close" onClick={() => setQrOpen(false)} aria-label="关闭">×</button><p>WECHAT COMMUNITY</p><h2>扫码添加好友</h2>
-            <div className="modal-qr"><Image src={asset("/images/wechat-contact.jpg")} alt="柑叙乌云微信好友二维码，扫码添加好友" fill sizes="380px" priority /></div>
+            <div className="modal-qr"><Image src={asset("/images/wechat-contact.webp")} alt="柑叙乌云微信好友二维码，扫码添加好友" fill sizes="380px" /></div>
             <b>添加后发送「进群」</b><span>新品、抽奖和福利会在群里不定期出现。</span>
           </div>
         </div>
